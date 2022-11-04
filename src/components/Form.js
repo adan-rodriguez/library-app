@@ -61,6 +61,7 @@ const Form = () => {
               type="text"
               id="title"
               name="title"
+              required
               value={book.title}
               onChange={handleChange}
             />
@@ -71,6 +72,7 @@ const Form = () => {
               type="number"
               id="isbn"
               name="isbn"
+              required
               value={book.isbn}
               onChange={handleChange}
             />
@@ -81,6 +83,7 @@ const Form = () => {
               type="number"
               name="pageCount"
               id="pageCount"
+              required
               value={book.pageCount}
               onChange={handleChange}
             />
@@ -91,6 +94,7 @@ const Form = () => {
               type="number"
               name="year"
               id="year"
+              required
               value={book.year}
               onChange={handleChange}
             />
@@ -101,19 +105,21 @@ const Form = () => {
               type="text"
               name="thumbnailUrl"
               id="thumbnailUrl"
+              required
               value={book.thumbnailUrl}
               onChange={handleChange}
             />
           </li>
           <li>
             <label htmlFor="description">Description</label>
-            <input
-              type="text"
+            <textarea
               name="description"
               id="description"
+              required
+              rows={5}
               value={book.description}
               onChange={handleChange}
-            />
+            ></textarea>
           </li>
           <li>
             <label htmlFor="authors">Authors</label>
@@ -121,6 +127,7 @@ const Form = () => {
               type="text"
               name="authors"
               id="authors"
+              required
               value={book.authors}
               onChange={handleChange}
             />
@@ -131,6 +138,7 @@ const Form = () => {
               type="text"
               name="categories"
               id="categories"
+              required
               value={book.categories}
               onChange={handleChange}
             />

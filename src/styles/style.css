@@ -24,7 +24,7 @@ main {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  min-height: 100vh;
+  min-height: calc(100vh - 66px);
 }
 
 .not-found {
@@ -54,11 +54,9 @@ ul {
   border: 1px solid black;
   border-radius: 10px;
   transition: 0.3s;
-  font-family: "Poopins", sans-serif;
-  letter-spacing: 1px;
 }
 
-input {
+.buttons, input, textarea {
   font-family: "Poopins", sans-serif;
   letter-spacing: 1px;
 }
@@ -182,6 +180,9 @@ input {
 .card-book {
   width: 300px;
   background-color: rgb(51, 51, 51);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .img-card {
@@ -191,9 +192,11 @@ input {
 }
 
 .info-card {
+  height: 100%;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   row-gap: 10px;
 }
 
@@ -256,7 +259,7 @@ input {
 .img-details {
   width: 300px;
   height: 350px;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .text-detail {
@@ -265,6 +268,7 @@ input {
   flex-direction: column;
   row-gap: 10px;
   padding: 15px;
+  align-self: stretch;
 }
 
 .title-detail {
@@ -282,7 +286,7 @@ input {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -295,7 +299,9 @@ form {
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+  width: 90%;
   padding: 15px 20px;
+  max-width: 600px;
 }
 
 form ul {
@@ -306,14 +312,21 @@ form ul {
 
 form ul li label {
   display: block;
-  width: 100px;
+}
+
+form ul li input, form ul li textarea {
+  border: 1px solid black;
+  padding: 0 10px;
+  width: 100%;
 }
 
 form ul li input {
   height: 1.75rem;
-  border: 1px solid black;
-  width: 260px;
-  padding: 0 10px;
+}
+
+form ul li textarea {
+  padding: 5px 10px;
+  resize: none;
 }
 
 .buttons-form {
@@ -352,7 +365,8 @@ form ul li input {
   }
 
   .text-detail {
-    max-width: 600px;
+    align-self: auto;
+    width: 600px;
   }
 }
 
