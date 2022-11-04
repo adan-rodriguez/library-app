@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 
 const Layout = () => {
-  console.log(document.body.form);
   return (
     <>
       <Header />

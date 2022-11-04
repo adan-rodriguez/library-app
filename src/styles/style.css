@@ -24,6 +24,7 @@ main {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  min-height: 100vh;
 }
 
 .not-found {
@@ -222,6 +223,11 @@ input {
   background-color: red;
   color: white;
   cursor: pointer;
+}
+
+.no-book-found {
+  font-size: 2rem;
+  font-weight: 900;
 }
 
 /*---------------- DetailsBook ---------------*/

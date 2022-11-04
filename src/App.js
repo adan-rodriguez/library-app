@@ -5,7 +5,7 @@ import DetailsBook from "./pages/DetailsBook";
 import Layout from "./Layout";
 import Form from "./components/Form";
 
-function App() {
+const App = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -23,6 +23,6 @@ function App() {
       </Route>
     </Routes>
   );
-}
+};
 
 export default App;
