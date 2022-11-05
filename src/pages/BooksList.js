@@ -48,24 +48,6 @@ const BooksList = () => {
       <Outlet />
       <div className="container-cardsbooks">
         {booksFilter.length === 0 ? <div className="no-book-found">No book found</div> : booksFilter}
-        {/* {books
-          .filter((book) => {
-            if (!search) return true;
-
-            const title = book.title.toLowerCase();
-            return title.includes(search.toLowerCase());
-          })
-          .map((book) => {
-            return (
-              <CardBook
-                key={book.id}
-                id={book.id}
-                title={book.title}
-                image={book.thumbnailUrl}
-                author={book.authors}
-              />
-            );
-          })} */}
       </div>
     </div>
   );
