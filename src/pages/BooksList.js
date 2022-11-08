@@ -47,7 +47,16 @@ const BooksList = () => {
       />
       <Outlet />
       <div className="container-cardsbooks">
-        {booksFilter.length === 0 ? <div className="no-book-found">No book found</div> : booksFilter}
+        {books.length === 0 ? (
+          <div className="no-book">You have no books in your library</div>
+        ) : (
+          booksFilter
+        )}
+        {booksFilter.length === 0 && books.length > 0 ? (
+          <div className="no-book">No book found</div>
+        ) : (
+          booksFilter
+        )}
       </div>
     </div>
   );
