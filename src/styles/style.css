@@ -48,7 +48,7 @@ ul {
 }
 
 .buttons {
-  padding: 10px 10px;
+  padding: 10px;
   min-width: 125px;
   text-align: center;
   border: 1px solid black;
@@ -196,12 +196,12 @@ ul {
   flex-direction: column;
   row-gap: 10px;
   flex-grow: 1;
+  overflow-wrap: break-word;
 }
 
 .title-card {
-  display: flex;
-  align-items: baseline;
-  column-gap: 5px;
+  font-size: larger;
+  text-align: center;
 }
 
 .buttons-card {
@@ -259,6 +259,7 @@ ul {
   width: 300px;
   height: 350px;
   object-fit: cover;
+  background-color: rgb(51, 51, 51);
 }
 
 .text-detail {
@@ -268,6 +269,7 @@ ul {
   row-gap: 10px;
   padding: 15px;
   align-self: stretch;
+  overflow-wrap: break-word;
 }
 
 .title-detail {
@@ -360,7 +362,7 @@ form ul li textarea {
     align-items: center;
     justify-content: space-evenly;
     column-gap: 15px;
-    height: calc(100vh - 66px);
+    min-height: calc(100vh - 66px);
   }
 
   .text-detail {
