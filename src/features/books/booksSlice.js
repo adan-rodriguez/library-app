@@ -145,7 +145,7 @@ const initialState = [
     categories: ["Web Development"],
   },
   {
-    id: 13,
+    id: 12,
     title: "Hello! Flex 4",
     isbn: 1933988762,
     pageCount: 258,
@@ -158,7 +158,7 @@ const initialState = [
     categories: ["Internet"],
   },
   {
-    id: 14,
+    id: 13,
     title: "Coffeehouse",
     isbn: 1884777384,
     pageCount: 316,
@@ -171,7 +171,7 @@ const initialState = [
     categories: ["Miscellaneous"],
   },
   {
-    id: 15,
+    id: 14,
     title: "Team Foundation Server 2008 in Action",
     isbn: 1933988592,
     pageCount: 344,
@@ -184,7 +184,7 @@ const initialState = [
     categories: ["Microsoft .NET"],
   },
   {
-    id: 16,
+    id: 15,
     title: "Brownfield Application Development in .NET",
     isbn: 1933988711,
     pageCount: 550,
@@ -197,7 +197,7 @@ const initialState = [
     categories: ["Microsoft"],
   },
   {
-    id: 17,
+    id: 16,
     title: "MongoDB in Action",
     isbn: 1935182870,
     pageCount: 0,
@@ -210,7 +210,7 @@ const initialState = [
     categories: ["Next Generation Databases"],
   },
   {
-    id: 18,
+    id: 17,
     title: "Distributed Application Development with PowerBuilder 6.0",
     isbn: 1884777686,
     pageCount: 504,
@@ -223,7 +223,7 @@ const initialState = [
     categories: ["PowerBuilder"],
   },
   {
-    id: 19,
+    id: 18,
     title: "Jaguar Development with PowerBuilder 7",
     isbn: 1884777864,
     pageCount: 550,
@@ -236,7 +236,7 @@ const initialState = [
     categories: ["PowerBuilder", "Client-Server"],
   },
   {
-    id: 20,
+    id: 19,
     title: "Taming Jaguar",
     isbn: 1884777686,
     pageCount: 362,

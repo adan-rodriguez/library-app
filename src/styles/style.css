@@ -48,8 +48,8 @@ ul {
 }
 
 .buttons {
-  padding: 10px 0;
-  width: 125px;
+  padding: 10px 10px;
+  min-width: 125px;
   text-align: center;
   border: 1px solid black;
   border-radius: 10px;

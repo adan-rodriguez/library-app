@@ -33,29 +33,28 @@ const BooksList = () => {
 
   return (
     <div className="container-bookslist">
-      <input
-        type="text"
-        id="search"
-        placeholder="Search book"
-        onChange={handleFilter}
-        value={search}
-      />
+      {books.length > 0 && (
+        <input
+          type="text"
+          id="search"
+          placeholder="Search book by title"
+          onChange={handleFilter}
+          value={search}
+        />
+      )}
       <LinkButton
         className="addbook-button"
         link={`add-book`}
-        text="Add Book"
+        text={books.length === 0 ? "Add your first book" : "Add book"}
       />
       <Outlet />
       <div className="container-cardsbooks">
-        {books.length === 0 ? (
+        {books.length > 0 && booksFilter.length > 0 && booksFilter}
+        {books.length === 0 && (
           <div className="no-book">You have no books in your library</div>
-        ) : (
-          booksFilter
         )}
-        {booksFilter.length === 0 && books.length > 0 ? (
+        {booksFilter.length === 0 && books.length > 0 && (
           <div className="no-book">No book found</div>
-        ) : (
-          booksFilter
         )}
       </div>
     </div>
