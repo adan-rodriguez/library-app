@@ -15,7 +15,9 @@ const CardBook = ({ title, image, author, id }) => {
       <img className="img-card" src={image} alt={title} loading={"lazy"} />
       <div className="info-card">
         <h2 className="title-card">{title}</h2>
-        <p>Authors: {author}</p>
+        <p>
+          <span className="underline">Authors</span>: {author}
+        </p>
         <div className="buttons-card">
           <LinkButton
             className="seedetails-button"

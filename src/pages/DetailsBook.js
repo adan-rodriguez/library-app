@@ -30,12 +30,25 @@ const DetailsBook = () => {
             />
             <div className="text-detail">
               <h1 className="title-detail">{book.title}</h1>
-              <p>Authors: {book.authors}</p>
-              <p>Year: {book.year}</p>
-              <p>Description: {book.description}</p>
-              <p>Category: {book.categories}</p>
-              <p>Pages: {book.pageCount}</p>
-              <p>ISBN: {book.isbn}</p>
+              <p>
+                <span className="underline">Authors</span>: {book.authors}
+              </p>
+              <p>
+                <span className="underline">Year</span>: {book.year}
+              </p>
+              <p>
+                <span className="underline">Description</span>:{" "}
+                {book.description}
+              </p>
+              <p>
+                <span className="underline">Category</span>: {book.categories}
+              </p>
+              <p>
+                <span className="underline">Pages</span>: {book.pageCount}
+              </p>
+              <p>
+                <span className="underline">ISBN</span>: {book.isbn}
+              </p>
               <LinkButton
                 className="edit-button"
                 link={"edit-book"}

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
+@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
 
 :root {
   --color-primary: black;
@@ -13,7 +14,8 @@
 
 body {
   min-width: 320px;
-  font-family: "Poopins", sans-serif;
+  /* font-family: "Poopins", sans-serif; */
+  font-family: 'GFS Didot', serif;
   color: white;
   letter-spacing: 1px;
 }
@@ -24,11 +26,11 @@ main {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
-  min-height: calc(100vh - 66px);
+  min-height: calc(100vh - 70px);
 }
 
 .not-found {
-  height: calc(100vh - 66px);
+  height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -57,12 +59,17 @@ ul {
 }
 
 .buttons, input, textarea {
-  font-family: "Poopins", sans-serif;
+  /* font-family: "Poopins", sans-serif; */
+  font-family: 'GFS Didot', serif;
   letter-spacing: 1px;
 }
 
 .buttons:hover {
   transform: scale(1.05);
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 /*------------ Header ---------------*/
@@ -113,7 +120,7 @@ ul {
 /*-------------- Home -----------------*/
 
 .container-home {
-  height: calc(100vh - 66px);
+  height: calc(100vh - 70px);
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -230,12 +237,14 @@ ul {
 .no-book {
   font-size: 2rem;
   font-weight: 900;
+  text-align: center;
+  padding: 0 15px;
 }
 
 /*---------------- DetailsBook ---------------*/
 
 .book-notexist {
-  height: calc(100vh - 66px);
+  height: calc(100vh - 70px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,7 +371,7 @@ form ul li textarea {
     align-items: center;
     justify-content: space-evenly;
     column-gap: 15px;
-    min-height: calc(100vh - 66px);
+    min-height: calc(100vh - 70px);
   }
 
   .text-detail {
