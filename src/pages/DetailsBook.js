@@ -1,6 +1,7 @@
 import { Outlet, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import LinkButton from "../components/LinkButton";
+import { useEffect } from "react";
 
 const DetailsBook = () => {
   const books = useSelector((state) => state.books);
@@ -8,6 +9,10 @@ const DetailsBook = () => {
   const { bookId } = useParams();
 
   const book = books.filter((book) => String(book.id) === bookId);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)  
+  }, [])
 
   if (book.length === 0) {
     return (
