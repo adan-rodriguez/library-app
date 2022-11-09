@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { deleteBook } from "../features/books/booksSlice";
 import LinkButton from "./LinkButton";
 
-const CardBook = ({ title, image, author, id }) => {
+const CardBook = ({ title, image, authors, id }) => {
   const dispatch = useDispatch();
 
   const handleDelete = (id) => {
@@ -16,7 +16,7 @@ const CardBook = ({ title, image, author, id }) => {
       <div className="info-card">
         <h2 className="title-card">{title}</h2>
         <p>
-          <span className="underline">Authors</span>: {author}
+          <span className="underline">Author{authors.length > 1 && "s"}</span>: {authors.join(", ")}
         </p>
         <div className="buttons-card">
           <LinkButton

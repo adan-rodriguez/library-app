@@ -11,8 +11,8 @@ const DetailsBook = () => {
   const book = books.filter((book) => String(book.id) === bookId);
 
   useEffect(() => {
-    window.scrollTo(0, 0)  
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
   if (book.length === 0) {
     return (
@@ -36,7 +36,10 @@ const DetailsBook = () => {
             <div className="text-detail">
               <h1 className="title-detail">{book.title}</h1>
               <p>
-                <span className="underline">Authors</span>: {book.authors}
+                <span className="underline">
+                  Author{book.authors.length > 1 && "s"}
+                </span>
+                : {book.authors.join(", ")}
               </p>
               <p>
                 <span className="underline">Year</span>: {book.year}
@@ -46,7 +49,10 @@ const DetailsBook = () => {
                 {book.description}
               </p>
               <p>
-                <span className="underline">Category</span>: {book.categories}
+                <span className="underline">
+                  Categor{book.categories.length > 1 ? "ies" : "y"}
+                </span>
+                : {book.categories.join(", ")}
               </p>
               <p>
                 <span className="underline">Pages</span>: {book.pageCount}

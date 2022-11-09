@@ -115,7 +115,7 @@ const initialState = [
       "https://s3.amazonaws.com/AKIAJC5RLADLUMVRPFDQ.book-thumb-images/almiray.jpg",
     description:
       "Griffon in Action is a comprehensive tutorial written for Java developers who want a more productive approach to UI development. In this book, you'll immediately dive into Griffon. After a Griffon orientation and a quick Groovy tutorial, you'll start building examples that explore Griffon's high productivity approach to Swing development. One of the troublesome parts of Swing development is the amount of Java code that is required to get a simple application off the ground.",
-    authors: ["Andres Almiray", "Danno Ferrin", "", "James Shingler"],
+    authors: ["Andres Almiray", "Danno Ferrin", "James Shingler"],
     categories: ["Java"],
   },
   {

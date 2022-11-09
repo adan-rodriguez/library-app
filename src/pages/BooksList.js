@@ -26,7 +26,7 @@ const BooksList = () => {
           id={book.id}
           title={book.title}
           image={book.thumbnailUrl}
-          author={book.authors}
+          authors={book.authors}
         />
       );
     });
