@@ -1,4 +1,3 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteBook } from "../features/books/booksSlice";
 import LinkButton from "./LinkButton";

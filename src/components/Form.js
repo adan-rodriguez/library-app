@@ -1,4 +1,3 @@
-import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -14,19 +13,34 @@ const Form = () => {
     year: "",
     thumbnailUrl: "",
     description: "",
-    authors: "",
-    categories: "",
+    authors: [],
+    categories: [],
   });
+  console.log(book);
 
+  const books = useSelector((state) => state.books);
+  const { bookId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { bookId } = useParams();
-  const books = useSelector((state) => state.books);
 
-  const handleChange = (e) => {
+  const handleChangeStrings = (e) => {
     setBook({
       ...book,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleChangeNumbers = (e) => {
+    setBook({
+      ...book,
+      [e.target.name]: Number(e.target.value),
+    });
+  };
+
+  const handleChangeArrays = (e) => {
+    setBook({
+      ...book,
+      [e.target.name]: [e.target.value],
     });
   };
 
@@ -49,6 +63,12 @@ const Form = () => {
 
   useEffect(() => {
     bookId && setBook(books.find((book) => String(book.id) === bookId));
+    document.querySelector("body").style.overflowY = "hidden";
+    window.scrollTo(0, 0);
+
+    return () => {
+      document.querySelector("body").style.overflowY = "";
+    };
   }, []);
 
   return (
@@ -63,7 +83,7 @@ const Form = () => {
               name="title"
               required
               value={book.title}
-              onChange={handleChange}
+              onChange={handleChangeStrings}
             />
           </li>
           <li>
@@ -74,7 +94,7 @@ const Form = () => {
               name="isbn"
               required
               value={book.isbn}
-              onChange={handleChange}
+              onChange={handleChangeNumbers}
             />
           </li>
           <li>
@@ -85,7 +105,7 @@ const Form = () => {
               id="pageCount"
               required
               value={book.pageCount}
-              onChange={handleChange}
+              onChange={handleChangeNumbers}
             />
           </li>
           <li>
@@ -96,7 +116,7 @@ const Form = () => {
               id="year"
               required
               value={book.year}
-              onChange={handleChange}
+              onChange={handleChangeNumbers}
             />
           </li>
           <li>
@@ -107,7 +127,7 @@ const Form = () => {
               id="thumbnailUrl"
               required
               value={book.thumbnailUrl}
-              onChange={handleChange}
+              onChange={handleChangeStrings}
             />
           </li>
           <li>
@@ -118,7 +138,7 @@ const Form = () => {
               required
               rows={5}
               value={book.description}
-              onChange={handleChange}
+              onChange={handleChangeStrings}
             ></textarea>
           </li>
           <li>
@@ -129,7 +149,7 @@ const Form = () => {
               id="authors"
               required
               value={book.authors}
-              onChange={handleChange}
+              onChange={handleChangeArrays}
             />
           </li>
           <li>
@@ -140,7 +160,7 @@ const Form = () => {
               id="categories"
               required
               value={book.categories}
-              onChange={handleChange}
+              onChange={handleChangeArrays}
             />
           </li>
         </ul>

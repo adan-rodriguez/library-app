@@ -1,5 +1,5 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"); */
-@import url('https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=GFS+Didot&display=swap");
 
 :root {
   --color-primary: black;
@@ -15,7 +15,7 @@
 body {
   min-width: 320px;
   /* font-family: "Poopins", sans-serif; */
-  font-family: 'GFS Didot', serif;
+  font-family: "GFS Didot", serif;
   color: white;
   letter-spacing: 1px;
 }
@@ -58,9 +58,11 @@ ul {
   transition: 0.3s;
 }
 
-.buttons, input, textarea {
+.buttons,
+input,
+textarea {
   /* font-family: "Poopins", sans-serif; */
-  font-family: 'GFS Didot', serif;
+  font-family: "GFS Didot", serif;
   letter-spacing: 1px;
 }
 
@@ -120,7 +122,7 @@ ul {
 /*-------------- Home -----------------*/
 
 .container-home {
-  height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
   max-width: 1200px;
   margin: auto;
   display: flex;
@@ -299,6 +301,7 @@ ul {
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.9);
@@ -312,6 +315,7 @@ form {
   width: 90%;
   padding: 15px 20px;
   max-width: 600px;
+  overflow-y: auto;
 }
 
 form ul {
@@ -324,7 +328,8 @@ form ul li label {
   display: block;
 }
 
-form ul li input, form ul li textarea {
+form ul li input,
+form ul li textarea {
   border: 1px solid black;
   padding: 0 10px;
   width: 100%;
