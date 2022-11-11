@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { addBook, editBook } from "../features/books/booksSlice";
 import { v4 as uuidv4 } from "uuid";
-import LinkButton from "./LinkButton";
 
 const Form = () => {
   const [book, setBook] = useState({
@@ -40,7 +39,7 @@ const Form = () => {
   const handleChangeArrays = (e) => {
     setBook({
       ...book,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value.split(","),
     });
   };
 
@@ -59,6 +58,12 @@ const Form = () => {
       );
       navigate("/books", { replace: true });
     }
+  };
+
+  const handleCancel = () => {
+    bookId
+      ? navigate(`/books/${book.id}`, { replace: true })
+      : navigate("/books", { replace: true });
   };
 
   useEffect(() => {
@@ -168,11 +173,9 @@ const Form = () => {
           <button className="buttons save-button" type="submit">
             Save
           </button>
-          <LinkButton
-            className="cancel-button"
-            link={bookId ? `/books/${bookId}` : "/books"}
-            text="Cancel"
-          />
+          <button className="buttons cancel-button" onClick={handleCancel}>
+            Cancel
+          </button>
         </div>
       </form>
     </div>

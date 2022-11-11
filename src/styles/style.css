@@ -357,6 +357,9 @@ form ul li textarea {
 
 .cancel-button {
   background-color: gray;
+  cursor: pointer;
+  color: white;
+  font-size: 1rem;
 }
 
 /* // Dispositivos X-Small (teléfonos verticales, menos de 576px)
