@@ -1,12 +1,15 @@
 {
     "env": {
-        "browser": true,
-        "es2021": true
+      "browser": true,
+      "es2021": true,
+      "jest": true
     },
     "extends": [
-        "plugin:react/recommended",
-        "airbnb",
-        "prettier"
+      "plugin:react/recommended",
+      "airbnb",
+      "plugin:cypress/recommended",
+      "plugin:react/jsx-runtime",
+      "prettier"
     ],
     "overrides": [
     ],
@@ -18,5 +21,14 @@
         "react"
     ],
     "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "import/no-extraneous-dependencies": [
+        "warn",
+        {
+          "devDependencies": false,
+          "optionalDependencies": false,
+          "peerDependencies": false
+        }
+      ]
     }
 }
