@@ -7,7 +7,7 @@ const LoginPage = () => {
         email: "",
         password: "",
       }}
-    //   validationSchema={loginSchema}
+      //   validationSchema={loginSchema}
       onSubmit={async (values) => {
         await new Promise((r) => setTimeout(r, 1000));
         alert(JSON.stringify(values, null, 2));

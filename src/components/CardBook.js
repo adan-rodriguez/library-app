@@ -15,7 +15,8 @@ const CardBook = ({ title, image, authors, id }) => {
       <div className="info-card">
         <h2 className="title-card">{title}</h2>
         <p>
-          <span className="underline">Author{authors.length > 1 && "s"}</span>: {authors.join(", ")}
+          <span className="underline">Author{authors.length > 1 && "s"}</span>:{" "}
+          {authors.join(", ")}
         </p>
         <div className="buttons-card">
           <LinkButton
