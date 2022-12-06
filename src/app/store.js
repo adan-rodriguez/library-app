@@ -9,4 +9,5 @@ const store = configureStore({
 
 export default store;
 
+// eslint-disable-next-line no-console
 console.log(store.getState());

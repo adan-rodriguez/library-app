@@ -11,7 +11,9 @@ function RegisterPage() {
       }}
       //   validationSchema={registerSchema}
       onSubmit={async (values) => {
+        // eslint-disable-next-line no-promise-executor-return
         await new Promise((r) => setTimeout(r, 1000));
+        // eslint-disable-next-line no-alert
         alert(JSON.stringify(values, null, 2));
       }}
     >

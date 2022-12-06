@@ -15,7 +15,6 @@ function Form() {
     authors: [],
     categories: [],
   });
-  console.log(book);
 
   const books = useSelector((state) => state.books);
   const { bookId } = useParams();

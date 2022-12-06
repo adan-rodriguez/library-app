@@ -287,6 +287,7 @@ export const booksSlice = createSlice({
     },
   },
 });
+// eslint-disable-next-line no-console
 console.log(booksSlice.getInitialState());
 export const { addBook, editBook, deleteBook } = booksSlice.actions;
 export default booksSlice.reducer;
