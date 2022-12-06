@@ -1,6 +1,6 @@
 import LinkButton from "../components/LinkButton";
 
-const Home = () => {
+function Home() {
   return (
     <div className="container-home">
       <h1>Library App</h1>
@@ -16,6 +16,6 @@ const Home = () => {
       />
     </div>
   );
-};
+}
 
 export default Home;

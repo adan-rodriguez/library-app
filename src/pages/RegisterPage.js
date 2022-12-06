@@ -1,6 +1,6 @@
 import { Formik, Form, Field } from "formik";
 
-const RegisterPage = () => {
+function RegisterPage() {
   return (
     <Formik
       initialValues={{
@@ -16,12 +16,12 @@ const RegisterPage = () => {
       }}
     >
       {({
-        values,
-        touched,
-        errors,
+        // values,
+        // touched,
+        // errors,
+        // handleChange,
+        // handleBlur,
         isSubmitting,
-        handleChange,
-        handleBlur,
       }) => (
         <Form>
           <label htmlFor="username">Username</label>
@@ -53,6 +53,6 @@ const RegisterPage = () => {
       )}
     </Formik>
   );
-};
+}
 
 export default RegisterPage;

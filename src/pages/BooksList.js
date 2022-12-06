@@ -3,7 +3,7 @@ import { Outlet, useSearchParams } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
 import CardBook from "../components/CardBook";
 
-const BooksList = () => {
+function BooksList() {
   const books = useSelector((state) => state.books);
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get("search") ?? "";
@@ -19,17 +19,15 @@ const BooksList = () => {
       const title = book.title.toLowerCase();
       return title.includes(search.toLowerCase());
     })
-    .map((book) => {
-      return (
-        <CardBook
-          key={book.id}
-          id={book.id}
-          title={book.title}
-          image={book.thumbnailUrl}
-          authors={book.authors}
-        />
-      );
-    });
+    .map((book) => (
+      <CardBook
+        key={book.id}
+        id={book.id}
+        title={book.title}
+        image={book.thumbnailUrl}
+        authors={book.authors}
+      />
+    ));
 
   return (
     <div className="container-bookslist">
@@ -44,7 +42,7 @@ const BooksList = () => {
       )}
       <LinkButton
         className="addbook-button"
-        link={`add-book`}
+        link="add-book"
         text={books.length === 0 ? "Add your first book" : "Add book"}
       />
       <Outlet />
@@ -59,6 +57,6 @@ const BooksList = () => {
       </div>
     </div>
   );
-};
+}
 
 export default BooksList;

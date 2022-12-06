@@ -7,7 +7,7 @@ import Form from "./components/Form";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 
-const App = () => {
+function App() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
@@ -27,6 +27,6 @@ const App = () => {
       </Route>
     </Routes>
   );
-};
+}
 
 export default App;

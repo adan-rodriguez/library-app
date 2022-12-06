@@ -1,12 +1,12 @@
-import books_icon from "../assets/images/books-icon.png";
 import { Link } from "react-router-dom";
+import booksIcon from "../assets/images/books-icon.png";
 
-const Header = () => {
+function Header() {
   return (
     <header className="main-header">
       <div className="container-header">
         <Link className="container-logo" to="/" title="Home">
-          <img width={30} height={30} src={books_icon} alt="Logo" />
+          <img width={30} height={30} src={booksIcon} alt="Logo" />
           <div className="text-logo">Library App</div>
         </Link>
         <nav>
@@ -22,6 +22,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;

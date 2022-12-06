@@ -1,6 +1,6 @@
 import { Field, Form, Formik } from "formik";
 
-const LoginPage = () => {
+function LoginPage() {
   return (
     <Formik
       initialValues={{
@@ -15,17 +15,19 @@ const LoginPage = () => {
       }}
     >
       {({
-        values,
-        touched,
-        errors,
-        handleChange,
-        handleBlur,
-        handleSubmit,
+        // values,
+        // touched,
+        // errors,
+        // handleChange,
+        // handleBlur,
+        // handleSubmit,
         isSubmitting,
       }) => (
         <Form>
-          <label htmlFor="email">Email</label>
-          <Field type="email" id="email" name="email" placeholder="Email" />
+          <label htmlFor="email">
+            Email
+            <Field type="email" id="email" name="email" placeholder="Email" />
+          </label>
           <label htmlFor="password">Password</label>
           <Field
             type="password"
@@ -39,6 +41,6 @@ const LoginPage = () => {
       )}
     </Formik>
   );
-};
+}
 
 export default LoginPage;
