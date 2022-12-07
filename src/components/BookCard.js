@@ -42,7 +42,7 @@ CardBook.propTypes = {
   title: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
   authors: PropTypes.arrayOf(PropTypes.string).isRequired,
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default CardBook;

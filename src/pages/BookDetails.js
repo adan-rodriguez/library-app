@@ -2,16 +2,17 @@ import { Outlet, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import LinkButton from "../components/LinkButton";
+import scrollToTop from "../utils/scrollToTop";
 
 function DetailsBook() {
   const books = useSelector((state) => state.books);
 
   const { bookId } = useParams();
 
-  const detailedBook = books.filter((book) => String(book.id) === bookId);
+  const detailedBook = books.filter((book) => book.id === bookId);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    scrollToTop();
   }, []);
 
   if (detailedBook.length === 0) {

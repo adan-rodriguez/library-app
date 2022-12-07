@@ -3,51 +3,80 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { addBook, editBook } from "../features/books/booksSlice";
+import scrollToTop from "../utils/scrollToTop";
 
 function Form() {
-  const [book, setBook] = useState({
-    title: "",
-    isbn: "",
-    pageCount: "",
-    year: "",
-    thumbnailUrl: "",
-    description: "",
-    authors: [],
-    categories: [],
-  });
+  const [title, setTitle] = useState("");
+  const [isbn, setIsbn] = useState("");
+  const [pageCount, setPageCount] = useState("");
+  const [year, setYear] = useState("");
+  const [thumbnailUrl, setThumbnailUrl] = useState("");
+  const [description, setDescription] = useState("");
+  const [authors, setAuthors] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const books = useSelector((state) => state.books);
   const { bookId } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleChangeStrings = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value,
-    });
+  const handleChangeTitle = (e) => {
+    setTitle(e.target.value);
   };
 
-  const handleChangeNumbers = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: Number(e.target.value),
-    });
+  const handleChangeIsbn = (e) => {
+    setIsbn(Number(e.target.value));
   };
 
-  const handleChangeArrays = (e) => {
-    setBook({
-      ...book,
-      [e.target.name]: e.target.value.split(","),
-    });
+  const handleChangePageCount = (e) => {
+    setPageCount(Number(e.target.value));
   };
 
-  const handleSubmit = (e) => {
+  const handleChangeYear = (e) => {
+    setYear(Number(e.target.value));
+  };
+
+  const handleChangeThumbnailUrl = (e) => {
+    setThumbnailUrl(e.target.value);
+  };
+
+  const handleChangeDescription = (e) => {
+    setDescription(e.target.value);
+  };
+
+  const handleChangeAuthors = (e) => {
+    setAuthors(e.target.value.split(","));
+  };
+
+  const handleChangeCategories = (e) => {
+    setCategories(e.target.value.split(","));
+  };
+
+  const backToBookDetail = () => {
+    navigate(`/books/${bookId}`, { replace: true });
+  };
+
+  const backToBookList = () => {
+    navigate("/books", { replace: true });
+  };
+
+  const handleSubmitForm = (e) => {
     e.preventDefault();
 
+    const book = {
+      title,
+      isbn,
+      pageCount,
+      year,
+      thumbnailUrl,
+      description,
+      authors,
+      categories,
+    };
+
     if (bookId) {
-      dispatch(editBook(book));
-      navigate(`/books/${book.id}`, { replace: true });
+      dispatch(editBook({ ...book, id: bookId }));
+      backToBookDetail();
     } else {
       dispatch(
         addBook({
@@ -55,30 +84,58 @@ function Form() {
           id: uuidv4(),
         })
       );
-      navigate("/books", { replace: true });
+      backToBookList();
     }
   };
 
-  const handleCancel = () => {
-    bookId
-      ? navigate(`/books/${book.id}`, { replace: true })
-      : navigate("/books", { replace: true });
+  const handleCancelSubmitForm = () => {
+    bookId ? backToBookDetail() : backToBookList();
+  };
+
+  const findBookToEdit = () =>
+    books.find((bookToCheck) => bookToCheck.id === bookId);
+
+  const fillFormDataBookToEdit = () => {
+    const bookToEdit = findBookToEdit();
+
+    setTitle(bookToEdit.title);
+
+    setIsbn(bookToEdit.isbn);
+
+    setPageCount(bookToEdit.pageCount);
+
+    setYear(bookToEdit.year);
+
+    setThumbnailUrl(bookToEdit.thumbnailUrl);
+
+    setDescription(bookToEdit.description);
+
+    setAuthors(bookToEdit.authors);
+
+    setCategories(bookToEdit.categories);
+  };
+
+  const hideScrollBar = () => {
+    document.querySelector("body").style.overflowY = "hidden";
+  };
+
+  const showScrollBar = () => {
+    document.querySelector("body").style.overflowY = "";
   };
 
   useEffect(() => {
-    bookId &&
-      setBook(books.find((bookToEdit) => String(bookToEdit.id) === bookId));
-    document.querySelector("body").style.overflowY = "hidden";
-    window.scrollTo(0, 0);
+    bookId && fillFormDataBookToEdit();
+    hideScrollBar();
+    scrollToTop();
 
     return () => {
-      document.querySelector("body").style.overflowY = "";
+      showScrollBar();
     };
   }, []);
 
   return (
     <div className="container-form">
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmitForm}>
         <ul>
           <li>
             <label htmlFor="title">
@@ -88,8 +145,8 @@ function Form() {
                 id="title"
                 name="title"
                 required
-                value={book.title}
-                onChange={handleChangeStrings}
+                value={title}
+                onChange={handleChangeTitle}
               />
             </label>
           </li>
@@ -101,8 +158,8 @@ function Form() {
                 id="isbn"
                 name="isbn"
                 required
-                value={book.isbn}
-                onChange={handleChangeNumbers}
+                value={isbn}
+                onChange={handleChangeIsbn}
               />
             </label>
           </li>
@@ -114,8 +171,8 @@ function Form() {
                 name="pageCount"
                 id="pageCount"
                 required
-                value={book.pageCount}
-                onChange={handleChangeNumbers}
+                value={pageCount}
+                onChange={handleChangePageCount}
               />
             </label>
           </li>
@@ -127,8 +184,8 @@ function Form() {
                 name="year"
                 id="year"
                 required
-                value={book.year}
-                onChange={handleChangeNumbers}
+                value={year}
+                onChange={handleChangeYear}
               />
             </label>
           </li>
@@ -140,8 +197,8 @@ function Form() {
                 name="thumbnailUrl"
                 id="thumbnailUrl"
                 required
-                value={book.thumbnailUrl}
-                onChange={handleChangeStrings}
+                value={thumbnailUrl}
+                onChange={handleChangeThumbnailUrl}
               />
             </label>
           </li>
@@ -153,8 +210,8 @@ function Form() {
                 id="description"
                 required
                 rows={5}
-                value={book.description}
-                onChange={handleChangeStrings}
+                value={description}
+                onChange={handleChangeDescription}
               />
             </label>
           </li>
@@ -166,8 +223,8 @@ function Form() {
                 name="authors"
                 id="authors"
                 required
-                value={book.authors}
-                onChange={handleChangeArrays}
+                value={authors}
+                onChange={handleChangeAuthors}
               />
             </label>
           </li>
@@ -179,8 +236,8 @@ function Form() {
                 name="categories"
                 id="categories"
                 required
-                value={book.categories}
-                onChange={handleChangeArrays}
+                value={categories}
+                onChange={handleChangeCategories}
               />
             </label>
           </li>
@@ -192,7 +249,7 @@ function Form() {
           <button
             type="button"
             className="buttons cancel-button"
-            onClick={handleCancel}
+            onClick={handleCancelSubmitForm}
           >
             Cancel
           </button>

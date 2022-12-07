@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import BooksList from "./pages/BooksList";
+import BookList from "./pages/BookList";
 import Home from "./pages/Home";
-import DetailsBook from "./pages/DetailsBook";
+import BookDetails from "./pages/BookDetails";
 import Layout from "./Layout";
 import Form from "./components/Form";
 import LoginPage from "./pages/LoginPage";
@@ -14,10 +14,10 @@ function App() {
         <Route index element={<Home />} />
         <Route path="login" element={<LoginPage />} />
         <Route path="register" element={<RegisterPage />} />
-        <Route path="books" element={<BooksList />}>
+        <Route path="books" element={<BookList />}>
           <Route path="add-book" element={<Form />} />
         </Route>
-        <Route path="books/:bookId" element={<DetailsBook />}>
+        <Route path="books/:bookId" element={<BookDetails />}>
           <Route path="edit-book" element={<Form />} />
         </Route>
         <Route

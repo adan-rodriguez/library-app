@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { Outlet, useSearchParams } from "react-router-dom";
 import LinkButton from "../components/LinkButton";
-import CardBook from "../components/CardBook";
+import BookCard from "../components/BookCard";
 
 function BooksList() {
   const books = useSelector((state) => state.books);
@@ -20,7 +20,7 @@ function BooksList() {
       return title.includes(search.toLowerCase());
     })
     .map((book) => (
-      <CardBook
+      <BookCard
         key={book.id}
         id={book.id}
         title={book.title}
